@@ -96,8 +96,6 @@ curl http://127.0.0.1:8000/applications/{id}          # full detail, including a
 curl http://127.0.0.1:8000/applications/stats         # totals, response rate, avg stipend, role-tier breakdown
 ```
 
-Full API contract, including every field shape: [`BACKEND_REFERENCE.md`](BACKEND_REFERENCE.md).
-
 ## Deployment
 
 The backend and frontend deploy independently — backend anywhere that runs a long-lived Python process (Render, Railway, Fly.io, a VPS), frontend anywhere that serves static files (Vercel, Netlify, Cloudflare Pages).

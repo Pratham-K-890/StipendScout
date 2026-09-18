@@ -203,7 +203,7 @@
   text-underline-offset: 3px;
 }
 
-/* DESIGN.md: any cell rendering money/numeric counts uses tabular figures */
+/* any cell rendering money/numeric counts uses tabular figures */
 .tabular-nums-brand {
   font-variant-numeric: tabular-nums;
 }
