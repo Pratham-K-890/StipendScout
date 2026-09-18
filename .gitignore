@@ -1,0 +1,18 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+*.egg-info/
+.vscode/
+.idea/
+.claude/
+.agents/
+skills-lock.json
+
+# personal resume data — keep only *.example.yaml templates in git
+resume/*.yaml
+!resume/*.example.yaml
+
+# user-specific search settings (defaults are baked into code)
+config/search_settings.yaml

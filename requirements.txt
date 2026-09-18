@@ -1,0 +1,31 @@
+# --- module 1: scaffolding / API skeleton ---
+fastapi
+uvicorn[standard]
+pydantic-settings
+python-dotenv
+
+# --- module 2: data layer ---
+sqlalchemy>=2.0
+psycopg[binary]
+pgvector
+alembic
+
+# --- module 3: scraper module ---
+httpx
+tenacity
+beautifulsoup4
+
+# --- testing ---
+pytest
+
+# --- module 4: matcher (local embeddings, no API/cost) ---
+fastembed
+
+# --- module 5: resume tailor ---
+pyyaml
+xhtml2pdf
+
+# --- module 5/7: LLM + orchestration ---
+openai          # used as an OpenAI-compatible client pointed at OpenRouter
+langgraph
+langgraph-checkpoint-postgres

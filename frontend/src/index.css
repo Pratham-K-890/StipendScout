@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/source-serif-4";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  "Caseworker's desk" design: this app's actual job is reviewing documents
+  (resume bullets, cover letters, JD summaries) and deciding what to send
+  out, not displaying metrics — so it's built like a case-file desk rather
+  than a SaaS dashboard. Three type families with distinct jobs: Inter for
+  UI chrome (nav/labels/buttons), Source Serif 4 for content under review
+  (this is the deliberate visual risk — it marks "a document you're judging"
+  as distinct from "the interface you're operating"), IBM Plex Mono for
+  ledger-like metadata (stipend amounts, dates, similarity scores, step
+  counters). Palette is warm parchment + oxblood, deliberately pulled away
+  from the cream/terracotta pairing common in generic AI-generated UI.
+*/
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Inter Variable', system-ui, sans-serif;
+    --font-serif: 'Source Serif 4 Variable', Georgia, serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+    --color-warning: var(--warning);
+    --color-warning-foreground: var(--warning-foreground);
+    --color-applied: var(--applied);
+    --color-applied-foreground: var(--applied-foreground);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    /* paper — cool parchment, deliberately not cream/off-white */
+    --background: #eae6dc;
+    --foreground: #211d18; /* ink */
+    --card: #f1eee5; /* a shade lighter than the desk — a sheet lying on it */
+    --card-foreground: #211d18;
+    --popover: #f1eee5;
+    --popover-foreground: #211d18;
+
+    /* primary = oxblood, the one accent — reserved for primary actions & stamps */
+    --primary: #6e2430;
+    --primary-foreground: #f2efe6;
+
+    /* secondary/muted = deeper parchment */
+    --secondary: #ddd7c8;
+    --secondary-foreground: #3a342c;
+    --muted: #ddd7c8;
+    --muted-foreground: #6e6458; /* slate */
+
+    /* accent = soft oxblood tint, hover/highlight only */
+    --accent: #e3cfc8;
+    --accent-foreground: #4a1620;
+
+    /* semantic colors — destructive kept a distinct saturated brick-red so
+       it never gets mistaken for the oxblood primary/approve color */
+    --destructive: #b23a2e;
+    --success: #4b6650; /* moss — interview reads as "moving forward" */
+    --success-foreground: #f2efe6;
+    --warning: #b8862e; /* ochre — reserved for flagged_terms, used nowhere else */
+    --warning-foreground: #2a1f0a;
+    /* applied = "filed in blue ink" — deliberately cool and far from oxblood
+       so the Applied lane never competes with primary/action affordances */
+    --applied: #3c5a78;
+    --applied-foreground: #f2efe6;
+
+    --border: #d3cbb8; /* hairline */
+    --input: #c9bfa8;
+    --ring: #8c3a46;
+
+    --chart-1: #6e2430;
+    --chart-2: #4b6650;
+    --chart-3: #b8862e;
+    --chart-4: #6e6458;
+    --chart-5: #211d18;
+
+    --radius: 0.5rem; /* index-card corners, not SaaS-rounded */
+
+    --sidebar: #f1eee5;
+    --sidebar-foreground: #211d18;
+    --sidebar-primary: #6e2430;
+    --sidebar-primary-foreground: #f2efe6;
+    --sidebar-accent: #ddd7c8;
+    --sidebar-accent-foreground: #211d18;
+    --sidebar-border: #d3cbb8;
+    --sidebar-ring: #8c3a46;
+}
+
+.dark {
+    /* desk lamp at night — ink desk, parchment ink, brighter oxblood for visibility */
+    --background: #1a1713;
+    --foreground: #eae6dc;
+    --card: #24211b;
+    --card-foreground: #eae6dc;
+    --popover: #24211b;
+    --popover-foreground: #eae6dc;
+    --primary: #b0616b;
+    --primary-foreground: #1a1713;
+    --secondary: #34302a;
+    --secondary-foreground: #eae6dc;
+    --muted: #34302a;
+    --muted-foreground: #a89e8c;
+    --accent: #4a1620;
+    --accent-foreground: #f2d9d4;
+    --destructive: #d4655a;
+    --success: #7fa384;
+    --success-foreground: #12160f;
+    --warning: #d4a94f;
+    --warning-foreground: #241a06;
+    --applied: #7c9cc2;
+    --applied-foreground: #1a1713;
+    --border: rgba(234, 230, 220, 0.12);
+    --input: rgba(234, 230, 220, 0.18);
+    --ring: #b0616b;
+    --chart-1: #b0616b;
+    --chart-2: #7fa384;
+    --chart-3: #d4a94f;
+    --chart-4: #a89e8c;
+    --chart-5: #eae6dc;
+    --sidebar: #24211b;
+    --sidebar-foreground: #eae6dc;
+    --sidebar-primary: #b0616b;
+    --sidebar-primary-foreground: #1a1713;
+    --sidebar-accent: #34302a;
+    --sidebar-accent-foreground: #eae6dc;
+    --sidebar-border: rgba(234, 230, 220, 0.12);
+    --sidebar-ring: #b0616b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01";
+    }
+  html {
+    @apply font-sans;
+    }
+}
+
+/* content under review (resume bullets, cover letters, JD summaries) reads
+   in the serif — everything else (nav, labels, buttons) stays sans */
+.doc-text {
+  font-family: var(--font-serif);
+}
+
+/* ledger-style metadata: stipend amounts, dates, similarity scores, step counters */
+.ledger {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* flagged_terms — the anti-fabrication signal — gets a literal red-pencil
+   underline rather than a badge or tooltip, since that's what it functionally is */
+.flag-mark {
+  text-decoration: underline wavy var(--warning);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* DESIGN.md: any cell rendering money/numeric counts uses tabular figures */
+.tabular-nums-brand {
+  font-variant-numeric: tabular-nums;
+}

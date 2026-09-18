@@ -1,0 +1,49 @@
+# Copy this to base_profile.yaml (gitignored) and fill in your real info.
+# This is the static part of your resume — projects are NOT listed here;
+# they're pulled live from your GitHub repos and picked per-application
+# based on fit with each JD (see app/nodes/tailor/github_projects.py).
+
+name: "Your Name"
+email: "you@example.com"
+phone: "+91-XXXXXXXXXX"
+location: "Bengaluru, India"
+
+links:
+  linkedin: "https://linkedin.com/in/yourhandle"
+  github: "https://github.com/yourhandle"
+  leetcode: "https://leetcode.com/yourhandle"
+  portfolio: ""
+
+education:
+  - institution: "Your College Name"
+    degree: "B.Tech"
+    branch: "Computer Science"
+    start_year: 2023
+    end_year: 2027
+    cgpa: "8.5"
+
+experience:
+  - title: "Previous Internship/Job Title"
+    company: "Company Name"
+    start_date: "2025-06"
+    end_date: "2025-08"
+    bullets:
+      - "Built a specific, real thing using specific, real tools, with a specific, real outcome."
+      - "Another real, specific accomplishment — no filler."
+
+# Grouped into categories — both the category order and the order of
+# skills within each category are preserved exactly as written here, since
+# that's the order they render in on the resume (see app/nodes/tailor/resume_render.py).
+skills:
+  Languages:
+    - "Python"
+    - "..."
+  Frameworks & Libraries:
+    - "FastAPI"
+    - "..."
+  Databases:
+    - "PostgreSQL"
+    - "..."
+  Tools & Platforms:
+    - "Git"
+    - "..."
